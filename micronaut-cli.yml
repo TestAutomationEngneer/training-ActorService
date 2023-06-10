@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.example
+testFramework: junit
+sourceLanguage: java
+buildTool: maven
+features: [annotation-api, app-name, assertj, http-client, java, java-application, junit, junit-params, logback, lombok, maven, netty-server, openapi, readme, serialization-jackson, shade, swagger-ui, yaml]
