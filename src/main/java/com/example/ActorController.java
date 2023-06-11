@@ -45,7 +45,6 @@ public class ActorController {
     }
 
 
-
     @Post
     public HttpResponse<Actor> addActor(@Body @Valid Actor actor) {
         actorService.addActor(actor);

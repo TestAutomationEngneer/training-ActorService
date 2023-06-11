@@ -24,6 +24,9 @@ public class ActorRepository {
 
     private List<Actor> actors = new ArrayList<>();
 
+    public List<Actor> getActors() {
+        return actors;
+    }
 
     @EventListener
     public void onStartup(StartupEvent event) {
