@@ -8,6 +8,7 @@ import com.models.Actor;
 import io.micronaut.context.event.StartupEvent;
 import io.micronaut.runtime.event.annotation.EventListener;
 import jakarta.inject.Singleton;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,11 +16,13 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Singleton
+@Slf4j
 public class ActorRepository {
 
-    private List<Actor> actors = new ArrayList<>(); // Wczytaj dane z pliku JSON do tej listy przy starcie aplikacji
+    private List<Actor> actors = new ArrayList<>();
 
 
     @EventListener
@@ -37,6 +40,7 @@ public class ActorRepository {
             for (int i = 0; i < actors.size(); i++) {
                 actors.get(i).setId(i + 1);
             }
+            log.info("Actors details loaded successfully!");
         } catch (IOException e) {
             throw new RuntimeException("Error loading actors: " + e.getMessage());
         }
@@ -47,7 +51,7 @@ public class ActorRepository {
         return actors;
     }
 
-    public Optional<Actor> findById(int id) {
+    public Optional<Actor> findById(Long id) {
         return actors.stream().filter(actor -> actor.getId() == id).findFirst();
     }
 
@@ -59,14 +63,4 @@ public class ActorRepository {
         return actors.removeIf(actor -> actor.getId() == id);
     }
 
-//    public boolean update(Actor actor) {
-//        Optional<Actor> existingActor = findById(actor.getId());
-//        existingActor.ifPresent(eActor -> {
-//            eActor.setFirstName(actor.getFirstName());
-//            eActor.setLastName(actor.getLastName());
-//            eActor.setRating(actor.getRating());
-//            eActor.setOscarPrized(actor.isOscarPrized());
-//        });
-//        return existingActor.isPresent();
-//    }
 }

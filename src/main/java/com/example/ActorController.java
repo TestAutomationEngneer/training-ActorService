@@ -23,7 +23,7 @@ public class ActorController {
         this.actorService = actorService;
     }
 
-    @Get(produces = MediaType.APPLICATION_JSON)
+    @Get()
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(summary = "Actors list", operationId = "actor_list", description = "desc actor list")
     @ApiResponse(
@@ -38,11 +38,13 @@ public class ActorController {
     }
 
     @Get("/{id}")
-    public HttpResponse<Actor> getActor(int id) {
+    public HttpResponse<Actor> getActor(Long id) {
         return actorService.getActor(id)
                 .map(HttpResponse::ok)
                 .orElse(HttpResponse.notFound());
     }
+
+
 
     @Post
     public HttpResponse<Actor> addActor(@Body @Valid Actor actor) {
@@ -50,15 +52,6 @@ public class ActorController {
         return HttpResponse.created(actor);
     }
 
-//    @Put
-//    public HttpResponse<Actor> updateActor(@Body @Valid Actor actor) {
-//        Actor updatedActor = actorService.updateActor(actor);
-//        if (updatedActor != null) {
-//            return HttpResponse.ok(updatedActor);
-//        } else {
-//            return HttpResponse.notFound();
-//        }
-//    }
 
     @Delete("/{id}")
     public HttpResponse deleteActor(int id) {

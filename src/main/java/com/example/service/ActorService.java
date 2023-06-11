@@ -21,7 +21,7 @@ public class ActorService {
         return actorRepository.findAll();
     }
 
-    public Optional<Actor> getActor(int id) {
+    public Optional<Actor> getActor(Long id) {
         return actorRepository.findById(id);
     }
 
@@ -29,11 +29,9 @@ public class ActorService {
         actorRepository.save(actor);
     }
 
-//    public boolean updateActor(Actor actor) {
-//        return actorRepository.update(actor);
-//    }
-
     public boolean deleteActor(int id) {
         return actorRepository.deleteById(id);
     }
+
+
 }
