@@ -5,6 +5,7 @@ import io.micronaut.http.HttpResponse;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.*;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -38,7 +39,7 @@ public class ActorController {
     }
 
     @Get("/{id}")
-    public HttpResponse<Actor> getActor(Long id) {
+    public HttpResponse<Actor> getActor(@Parameter @PathVariable Long id) {
         return actorService.getActor(id)
                 .map(HttpResponse::ok)
                 .orElse(HttpResponse.notFound());

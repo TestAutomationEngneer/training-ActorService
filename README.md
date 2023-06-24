@@ -3,7 +3,7 @@ application: http://localhost:9292/
 
 
 1. GET
-   http://localhost:9292/student/2
+   http://localhost:9292/actor/2
 2. swagger
    http://localhost:9292/swagger-ui/
 3. Rapidoc

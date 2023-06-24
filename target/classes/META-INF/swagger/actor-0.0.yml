@@ -29,27 +29,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Actor'
-  /actors/selected/{ids}:
-    get:
-      operationId: getActorsByIds
-      parameters:
-      - name: ids
-        in: path
-        required: true
-        schema:
-          type: array
-          items:
-            type: integer
-            format: int64
-      responses:
-        "200":
-          description: getActorsByIds 200 response
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Actor'
   /actors/{id}:
     get:
       operationId: getActor
@@ -59,7 +38,7 @@ paths:
         required: true
         schema:
           type: integer
-          format: int32
+          format: int64
       responses:
         "200":
           description: getActor 200 response
