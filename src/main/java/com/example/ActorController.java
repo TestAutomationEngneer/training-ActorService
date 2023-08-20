@@ -9,10 +9,8 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-
 import javax.validation.Valid;
 import java.util.List;
-
 import static io.micronaut.http.MediaType.APPLICATION_JSON;
 
 @Controller("/actors")
@@ -54,7 +52,7 @@ public class ActorController {
 
 
     @Delete("/{id}")
-    public HttpResponse deleteActor(int id) {
+    public HttpResponse deleteActor(Long id) {
         if (actorService.deleteActor(id)) {
             return HttpResponse.noContent();
         } else {

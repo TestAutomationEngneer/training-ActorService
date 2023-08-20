@@ -1,10 +1,8 @@
 package com.example.service;
 
-
 import com.example.repository.ActorRepository;
 import com.models.Actor;
 import jakarta.inject.Singleton;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -29,9 +27,7 @@ public class ActorService {
         actorRepository.save(actor);
     }
 
-    public boolean deleteActor(int id) {
+    public boolean deleteActor(Long id) {
         return actorRepository.deleteById(id);
     }
-
-
 }

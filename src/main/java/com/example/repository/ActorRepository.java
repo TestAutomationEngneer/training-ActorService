@@ -1,8 +1,6 @@
 package com.example.repository;
 
-import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.models.Actor;
 import io.micronaut.context.event.StartupEvent;
@@ -12,11 +10,9 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Singleton
 @Slf4j
@@ -40,8 +36,8 @@ public class ActorRepository {
             actors = mapper.readValue(file, new TypeReference<List<Actor>>(){});
 
             // Przypisz unikalne ID dla każdego aktora
-            for (int i = 0; i < actors.size(); i++) {
-                actors.get(i).setId(i + 1);
+            for (Long i = 0L; i < actors.size(); i++) {
+                actors.get(Math.toIntExact(i)).setId(i + 1);
             }
             log.info("Actors details loaded successfully!");
         } catch (IOException e) {
@@ -62,8 +58,7 @@ public class ActorRepository {
         actors.add(actor);
     }
 
-    public boolean deleteById(int id) {
+    public boolean deleteById(Long id) {
         return actors.removeIf(actor -> actor.getId() == id);
     }
-
 }
