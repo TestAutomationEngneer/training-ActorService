@@ -31,7 +31,7 @@ public class ActorApiTest {
     void shouldLoadActorsRepository() {
       var loadedActors = actorRepository.getActors();
         assertThat(loadedActors).hasSize(20);
-        log.info("All actors loaded properly.");
+        log.info("All actors loaded successfully.");
     }
 
     @Test
