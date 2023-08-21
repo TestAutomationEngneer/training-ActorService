@@ -1,4 +1,9 @@
 micronaut:
+  security:
+    enabled: false
+  http:
+    client:
+      read-timeout: 5s
   application:
     name: actor
   server:
