@@ -2,7 +2,7 @@ micronaut:
   application:
     name: actor
   server:
-    port: 9292
+    port: 9494
   router:
     static-resources:
       swagger:
