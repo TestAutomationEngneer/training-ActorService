@@ -20,7 +20,7 @@ public class ActorApiTest {
         Actor expectedActor = new Actor("Tom", "Hanks", 1, true);
         log.info("Actual actor: " + expectedActor);
         Actor actualActor = actorRepository.findById(1L).get();
-        log.info("Expected actor: " + actualActor);
+        log.info("Expected actor object: " + actualActor);
         assertThat(actualActor.getFirstName()).isEqualTo(expectedActor.getFirstName());
         assertThat(actualActor.getLastName()).isEqualTo(expectedActor.getLastName());
         assertThat(actualActor.getRating()).isEqualTo(expectedActor.getRating());
