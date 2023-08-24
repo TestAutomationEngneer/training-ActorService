@@ -1,208 +1,241 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.example</groupId>
-  <artifactId>Actor</artifactId>
-  <version>0.1</version>
-  <packaging>${packaging}</packaging>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>Actor</artifactId>
+    <version>0.1</version>
+    <packaging>${packaging}</packaging>
 
-  <parent>
-    <groupId>io.micronaut</groupId>
-    <artifactId>micronaut-parent</artifactId>
-    <version>3.9.3</version>
-  </parent>
+    <parent>
+        <groupId>io.micronaut</groupId>
+        <artifactId>micronaut-parent</artifactId>
+        <version>3.9.3</version>
+    </parent>
 
-  <properties>
-    <packaging>jar</packaging>
-    <jdk.version>17</jdk.version>
-    <release.version>17</release.version>
-    <micronaut.version>3.9.3</micronaut.version>
-    <micronaut.runtime>netty</micronaut.runtime>
-    <exec.mainClass>com.example.Application</exec.mainClass>
-  </properties>
+    <properties>
+        <packaging>jar</packaging>
+        <jdk.version>17</jdk.version>
+        <release.version>17</release.version>
+        <micronaut.version>3.9.3</micronaut.version>
+        <micronaut.runtime>netty</micronaut.runtime>
+        <exec.mainClass>com.example.Application</exec.mainClass>
+    </properties>
 
-  <repositories>
-    <repository>
-      <id>central</id>
-      <url>https://repo.maven.apache.org/maven2</url>
-    </repository>
-  </repositories>
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+    </repositories>
 
-  <dependencies>
-    <dependency>
-      <groupId>io.micronaut</groupId>
-      <artifactId>micronaut-http-client</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.micronaut</groupId>
-      <artifactId>micronaut-http-server-netty</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.micronaut</groupId>
-      <artifactId>micronaut-runtime</artifactId>
-      <scope>compile</scope>
-      <exclusions>
-          <exclusion>
+    <dependencies>
+        <dependency>
             <groupId>io.micronaut</groupId>
-            <artifactId>micronaut-jackson-databind</artifactId>
-          </exclusion>
-        </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>io.micronaut.serde</groupId>
-      <artifactId>micronaut-serde-jackson</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.swagger.core.v3</groupId>
-      <artifactId>swagger-annotations</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>jakarta.annotation</groupId>
-      <artifactId>jakarta.annotation-api</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.micronaut.test</groupId>
-      <artifactId>micronaut-test-junit5</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.assertj</groupId>
-      <artifactId>assertj-core</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-params</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>2.14.2</version>
-    </dependency>
-    <!--pact  -->
-<!--    <dependency>-->
-<!--      <groupId>au.com.dius</groupId>-->
-<!--      <artifactId>pact-jvm-provider-junit</artifactId>-->
-<!--      <version>4.0.10</version>-->
-<!--    </dependency>-->
-    <!-- https://mvnrepository.com/artifact/au.com.dius/pact-jvm-provider-junit5 -->
-<!--    <dependency>-->
-<!--      <groupId>au.com.dius</groupId>-->
-<!--      <artifactId>pact-jvm-provider-junit5_2.12</artifactId>-->
-<!--      <version>3.6.15</version>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>au.com.dius.pact</groupId>-->
-<!--      <artifactId>provider</artifactId>-->
-<!--      <version>4.1.11</version>-->
-<!--      <scope>test</scope>-->
-<!--    </dependency>-->
-    <!-- https://mvnrepository.com/artifact/au.com.dius.pact.provider/junit5 -->
-    <dependency>
-      <groupId>au.com.dius.pact.provider</groupId>
-      <artifactId>junit5</artifactId>
-      <version>4.4.2</version>
-    </dependency>
-  </dependencies>
+            <artifactId>micronaut-http-client</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.micronaut</groupId>
+            <artifactId>micronaut-http-server-netty</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.micronaut</groupId>
+            <artifactId>micronaut-runtime</artifactId>
+            <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.micronaut</groupId>
+                    <artifactId>micronaut-jackson-databind</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>io.micronaut.serde</groupId>
+            <artifactId>micronaut-serde-jackson</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.micronaut.test</groupId>
+            <artifactId>micronaut-test-junit5</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.14.2</version>
+        </dependency>
+        <!--pact  -->
+        <!--    <dependency>-->
+        <!--      <groupId>au.com.dius</groupId>-->
+        <!--      <artifactId>pact-jvm-provider-junit</artifactId>-->
+        <!--      <version>4.0.10</version>-->
+        <!--    </dependency>-->
+        <!-- https://mvnrepository.com/artifact/au.com.dius/pact-jvm-provider-junit5 -->
+        <!--    <dependency>-->
+        <!--      <groupId>au.com.dius</groupId>-->
+        <!--      <artifactId>pact-jvm-provider-junit5_2.12</artifactId>-->
+        <!--      <version>3.6.15</version>-->
+        <!--    </dependency>-->
+        <!--    <dependency>-->
+        <!--      <groupId>au.com.dius.pact</groupId>-->
+        <!--      <artifactId>provider</artifactId>-->
+        <!--      <version>4.1.11</version>-->
+        <!--      <scope>test</scope>-->
+        <!--    </dependency>-->
+        <!-- https://mvnrepository.com/artifact/au.com.dius.pact.provider/junit5 -->
+        <dependency>
+            <groupId>au.com.dius.pact.provider</groupId>
+            <artifactId>junit5</artifactId>
+            <version>4.4.2</version>
+        </dependency>
+    </dependencies>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>au.com.dius.pact.provider</groupId>
-        <artifactId>maven</artifactId>
-        <version>4.1.11</version>
-      </plugin>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>au.com.dius.pact.provider</groupId>
+                <artifactId>maven</artifactId>
+                <version>4.1.11</version>
+                <configuration>
 
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-        </configuration>
-      </plugin>
+                    <!--          <pactDirectory>${project.basedir}/pacts</pactDirectory>-->
+                    <pactBrokerUrl>http://localhost</pactBrokerUrl>
+                    <!--          <pactBrokerUsername>pact_training</pactBrokerUsername>-->
+                    <!--          <pactBrokerPassword>pact</pactBrokerPassword>-->
+                    <serviceProviders>
+                        <serviceProvider>
+                            <name>actor</name>
+                            <stateChangeUrl>http://localhost/tasks/pactStateChange</stateChangeUrl>
+                            <pactBroker>
+                                <url>http://localhost</url>
+                                <authentication>
+                                    <scheme>basic</scheme>
+                                    <username>test</username>
+                                    <password>test</password>
+                                </authentication>
+                            </pactBroker>
+                        </serviceProvider>
+                    </serviceProviders>
+                </configuration>
 
-      <plugin>
-        <groupId>io.micronaut.build</groupId>
-        <artifactId>micronaut-maven-plugin</artifactId>
-      </plugin>
-      
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <!-- Uncomment to enable incremental compilation -->
-          <!-- <useIncrementalCompilation>false</useIncrementalCompilation> -->
+            </plugin>
 
-          <annotationProcessorPaths combine.self="override">
-            <path>
-              <groupId>org.projectlombok</groupId>
-              <artifactId>lombok</artifactId>
-              <version>${lombok.version}</version>
-            </path>
-            <path>
-              <groupId>io.micronaut</groupId>
-              <artifactId>micronaut-inject-java</artifactId>
-              <version>${micronaut.version}</version>
-            </path>
-            <path>
-              <groupId>io.micronaut</groupId>
-              <artifactId>micronaut-graal</artifactId>
-              <version>${micronaut.version}</version>
-            </path>
-            <path>
-              <groupId>io.micronaut</groupId>
-              <artifactId>micronaut-http-validation</artifactId>
-              <version>${micronaut.version}</version>
-            </path>
-            <path>
-              <groupId>io.micronaut</groupId>
-              <artifactId>micronaut-validation</artifactId>
-              <version>${micronaut.version}</version>
-            </path>
-            <path>
-              <groupId>io.micronaut.openapi</groupId>
-              <artifactId>micronaut-openapi</artifactId>
-              <version>${micronaut.openapi.version}</version>
-            </path>
-            <path>
-              <groupId>io.micronaut.serde</groupId>
-              <artifactId>micronaut-serde-processor</artifactId>
-              <version>${micronaut.serialization.version}</version>
-            </path>
-          </annotationProcessorPaths>
-          <compilerArgs>
-            <arg>-Amicronaut.processing.group=com.example</arg>
-            <arg>-Amicronaut.processing.module=Actor</arg>
-          </compilerArgs>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.1</version>
+                <configuration>
+                    <useSystemClassLoader>false</useSystemClassLoader>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <configuration>
+                    <systemPropertyVariables>
+                        <pact.verifier.publishResults>true</pact.verifier.publishResults>
+                        <pact.provider.version>${project.version}</pact.provider.version>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.micronaut.build</groupId>
+                <artifactId>micronaut-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <!-- Uncomment to enable incremental compilation -->
+                    <!-- <useIncrementalCompilation>false</useIncrementalCompilation> -->
+
+                    <annotationProcessorPaths combine.self="override">
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                        <path>
+                            <groupId>io.micronaut</groupId>
+                            <artifactId>micronaut-inject-java</artifactId>
+                            <version>${micronaut.version}</version>
+                        </path>
+                        <path>
+                            <groupId>io.micronaut</groupId>
+                            <artifactId>micronaut-graal</artifactId>
+                            <version>${micronaut.version}</version>
+                        </path>
+                        <path>
+                            <groupId>io.micronaut</groupId>
+                            <artifactId>micronaut-http-validation</artifactId>
+                            <version>${micronaut.version}</version>
+                        </path>
+                        <path>
+                            <groupId>io.micronaut</groupId>
+                            <artifactId>micronaut-validation</artifactId>
+                            <version>${micronaut.version}</version>
+                        </path>
+                        <path>
+                            <groupId>io.micronaut.openapi</groupId>
+                            <artifactId>micronaut-openapi</artifactId>
+                            <version>${micronaut.openapi.version}</version>
+                        </path>
+                        <path>
+                            <groupId>io.micronaut.serde</groupId>
+                            <artifactId>micronaut-serde-processor</artifactId>
+                            <version>${micronaut.serialization.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                    <compilerArgs>
+                        <arg>-Amicronaut.processing.group=com.example</arg>
+                        <arg>-Amicronaut.processing.module=Actor</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

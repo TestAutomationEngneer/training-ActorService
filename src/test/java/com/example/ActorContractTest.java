@@ -7,6 +7,7 @@ import au.com.dius.pact.provider.junit5.PactVerificationInvocationContextProvide
 import au.com.dius.pact.provider.junitsupport.IgnoreNoPactsToVerify;
 import au.com.dius.pact.provider.junitsupport.Provider;
 import au.com.dius.pact.provider.junitsupport.State;
+import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
 import au.com.dius.pact.provider.junitsupport.loader.PactFolder;
 import com.example.service.ActorService;
 import com.models.Actor;
@@ -21,8 +22,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 @MicronautTest(transactional = false)
 @Provider("actor")
-//@PactBroker
-@PactFolder("pacts")
+@PactBroker(url = "http://localhost/")
+//@PactFolder("pacts")
 @IgnoreNoPactsToVerify
 @Tag("pact")
 @Slf4j
