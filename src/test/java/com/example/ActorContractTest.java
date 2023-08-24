@@ -22,7 +22,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 @MicronautTest(transactional = false)
 @Provider("actor")
-@PactBroker(url = "http://localhost/")
+@PactBroker(url = "http://localhost:9292/")
 //@PactFolder("pacts")
 @IgnoreNoPactsToVerify
 @Tag("pact")
